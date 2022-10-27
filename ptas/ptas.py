@@ -1,5 +1,5 @@
 from itertools import chain, combinations
-
+import time
 """PTAS - polynominal time approximation scheme. 
 Мы будем использовать PTAS от Sahni(1975).
 """
@@ -125,6 +125,9 @@ biggest_detail = int(input('Введите размер наибольшей д�
 # размер детали, которую не нужно выпиливать из начальной детали
 unnecessary_detail = int(input('Введите размер детали, которую выпиливать не нужно, он должен быть кратен 10\n'))
 
+#Посчитаем время работы
+start = time.perf_counter()
+
 # делаем проверку на то, что пользователь ввел данные правильно
 if max_detail_length > 5*smallest_detail or biggest_detail > max_detail_length or max_detail_length % 10 != 0 \
         or smallest_detail % 10 != 0 or biggest_detail % 10 != 0 or unnecessary_detail % 10 != 0:
@@ -203,3 +206,6 @@ else:
     for line in lines:
         print(line.strip())
     file.close
+
+end = time.perf_counter()
+print("Время работы алгоритма: ", end-start)
